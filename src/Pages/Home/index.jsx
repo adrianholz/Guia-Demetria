@@ -1,5 +1,6 @@
 import "./styles.css"
 import Header from "./../../Components/Header"
+import Footer from "./../../Components/Footer"
 import { database } from "../../firebase";
 import { getDocs, collection } from "firebase/firestore"
 import { useEffect, useState } from "react";
@@ -134,12 +135,14 @@ export default function Home(){
               <label for="image">Imagens do Negócio</label>
               <input type="file" id="image" name="image" multiple />
             </div>
-            <input type="submit" />
+            <input type="submit" value="Enviar" />
           </form>
         </div>
       </div>
     </div>
   </section>
+
+  <Footer />
   
   </>);
 }
