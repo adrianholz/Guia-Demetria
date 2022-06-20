@@ -1,24 +1,9 @@
 import "./styles.css"
 import Header from "./../../Components/Header"
 import Footer from "./../../Components/Footer"
-import { database } from "../../firebase";
-import { getDocs, collection } from "firebase/firestore"
-import { useEffect, useState } from "react";
+
 
 export default function Home(){
-  const locationCollection = collection(database, "locations")
-  const [locations, setLocations] = useState([])
-  async function getLocationsFromFirebase(){
-    const locations = await getDocs(locationCollection);
-    let lol = []
-    locations.docs.map(doc => lol.push(doc.data()));
-    setLocations(lol);
-  }
-  useEffect(() => {
-
-    getLocationsFromFirebase();
-
-  }, [])
   return (<>
 
   <Header />

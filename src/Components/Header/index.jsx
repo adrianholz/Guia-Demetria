@@ -1,15 +1,24 @@
 import "./style.css"
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function Header(){
+  const navigate = useNavigate()
+  let searchTerm
+  function search(){ 
+    navigate("/search", {state: searchTerm})
+  }
+  useEffect(()=> {}, [])
   return (<>
 
 <header>
     <div class="header-content">
-      <h1><a href="index.html">Guia do Demétria</a></h1>
-      <form method="post">
-        <input type="text" name="search" placeholder="Digite um negócio..." />
-        <input type="submit" name="submit" value="Procurar" />
-      </form>
+      <h1><Link to="/">Guia do Demétria</Link></h1>
+      {/* <form method="post"> */}
+        <input type="text" name="search" placeholder="Digite um negócio..." onChange={event => searchTerm = event.target.value} />
+        <input type="submit" name="submit" value="Procurar" onClick={()=> search()} />
+      {/* </form> */}
       <nav>
         <ul>
           <li>
