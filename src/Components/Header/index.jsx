@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export default function Header(){
+export default function Header(props){
   const navigate = useNavigate()
   let searchTerm
-  function search(){ 
-    navigate("/search", {state: searchTerm})
+  function search(filter){ 
+    let params = {term: searchTerm}
+    if(filter !== undefined){
+      params.filter = filter;
+    }
+    navigate("/search")
+    props.changeTerm(params);
   }
   useEffect(()=> {}, [])
   return (<>
@@ -22,23 +27,23 @@ export default function Header(){
       <nav>
         <ul>
           <li>
-            <a href="#">Serviços</a>
+            <a>Serviços</a>
             <ul>
-              <li><a href="#">Alimentação</a></li>
-              <li><a href="#">Bem-Estar</a></li>
-              <li><a href="#">Serviços Gerais</a></li>
-              <li><a href="#">Transporte</a></li>
-              <li><a href="#">Cursos</a></li>
+              <li><a onClick={() => search("Alimentação")}>Alimentação</a></li>
+              <li><a>Bem-Estar</a></li>
+              <li><a>Serviços Gerais</a></li>
+              <li><a>Transporte</a></li>
+              <li><a>Cursos</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">Comunidade</a>
+            <a>Comunidade</a>
             <ul>
-              <li><a href="#">Eventos</a></li>
-              <li><a href="#">Biodinâmica</a></li>
-              <li><a href="#">Educação</a></li>
-              <li><a href="#">Grupos</a></li>
-              <li><a href="#">Locais</a></li>
+              <li><a>Eventos</a></li>
+              <li><a>Biodinâmica</a></li>
+              <li><a>Educação</a></li>
+              <li><a>Grupos</a></li>
+              <li><a>Locais</a></li>
             </ul>
           </li>
         </ul>

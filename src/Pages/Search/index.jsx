@@ -5,6 +5,7 @@ import { getDocs, collection } from "firebase/firestore"
 import { useEffect, useState } from "react";
 import { stringify } from "@firebase/util";
 import { useLocation } from "react-router-dom"; 
+import { useCallback } from "react";
 
 
 export default function Search(){
@@ -12,13 +13,16 @@ export default function Search(){
   let allCollections = []
   const [locations, setLocations] = useState([])
   const [allLocations, setAllLocations] = useState([]) 
-  const {state} = useLocation();
+  const {state} = useLocation()
+  const [searchTerm, setSearchTerm] = useState([])
 
-  function checkSearchTerm(){
-    if(state !== null){
-      // console.log(state)
-      searchData(state)
+  function checkSearchTerm(places){
+    console.log(searchTerm)
+    let term = searchTerm
+    if(term.term === undefined){
+      term.term = '';
     }
+    searchData(term, places)
   }
 
   async function getLocationsFromFirebase(){
@@ -27,13 +31,8 @@ export default function Search(){
     locations.docs.map(doc => places.push(doc.data()));
     setLocations(places);
     setAllLocations(places);
+    checkSearchTerm(places);
   }
-
-
-
-  console.log("retorno:", allLocations)
-
-
 
   function filterData(type){
     setLocations(
@@ -45,20 +44,23 @@ export default function Search(){
 
 
 
-  function searchData(search){
+  function searchData(search, places){
     console.log(search)
-    console.log(allLocations)
     setLocations(
-      allLocations.filter(
+      places.filter(
         location => {
           const locationName = location.name.toLowerCase()
-          const searchLowerCase = search.toLowerCase()
+          const searchLowerCase = search.term.toLowerCase()
           if(locationName.includes(searchLowerCase)){
             return location
           }
         }
       )
     )
+    if(search.filter !== undefined){
+      console.log(search)
+      filterData(search.filter);
+    }
   }
 
 
@@ -66,28 +68,32 @@ export default function Search(){
   useEffect(() => {
 
     getLocationsFromFirebase();
-    checkSearchTerm()
 
-  }, [])
 
-  console.log(locations);
+  }, [searchTerm])
   return(
     <>
-      <Header />
+      <Header 
+      changeTerm={term => {
+        console.log(term)
+        setSearchTerm(term)
+      }}
+      />
       <input type="text" onChange={event => searchData(event.target.value)} />
       <button onClick={() => filterData("Alimentação")}>Alimentação</button>
       <button onClick={() => filterData("Serviços Gerais")}>Serviços Gerais</button>
-      <ul>
         {
           locations.map(
-            location => {
+            (location, index) => {
               return(
-                <li>{location.name}</li>
+                <div key={index}>
+                  <h1>{location.name}</h1>
+                  <address>{location.address}</address>
+                </div>
               )
             }
           )
         }
-      </ul>
       <Footer />
     </>
   )

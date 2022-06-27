@@ -6,7 +6,9 @@ import Footer from "./../../Components/Footer"
 export default function Home(){
   return (<>
 
-  <Header />
+    <Header 
+      changeTerm={term => console.log(term)}
+      />
 
   <section id="main">
     <div class="main-content">
