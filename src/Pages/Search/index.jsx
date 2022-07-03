@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { stringify } from "@firebase/util";
 import { useLocation } from "react-router-dom"; 
 import { useCallback } from "react";
+import "./styles.css"
 
 
 export default function Search(){
@@ -81,19 +82,54 @@ export default function Search(){
       />
       <input type="text" onChange={event => searchData(event.target.value)} />
       <button onClick={() => filterData("Alimentação")}>Alimentação</button>
+      <button onClick={() => filterData("Bem-Estar")}>Bem-Estar</button>
       <button onClick={() => filterData("Serviços Gerais")}>Serviços Gerais</button>
+      <button onClick={() => filterData("Transporte")}>Transporte</button>
+      <button onClick={() => filterData("Cursos")}>Cursos</button>
+      <button onClick={() => filterData("Eventos")}>Eventos</button>
+      <button onClick={() => filterData("Biodinâmica")}>Biodinâmica</button>
+      <button onClick={() => filterData("Educação")}>Educação</button>
+      <button onClick={() => filterData("Grupos")}>Grupos</button>
+      <button onClick={() => filterData("Locais")}>Locais</button>
+      <section className="catalog">
         {
           locations.map(
             (location, index) => {
               return(
-                <div key={index}>
-                  <h1>{location.name}</h1>
-                  <address>{location.address}</address>
+                <div key={index} class="catalog-item">
+                  <div className="item-inner">
+                    <img className="item-picture" src={location.image}></img>
+                    <div class="item-description">
+                      <p>{location.type.name}</p>
+                      <h1>{location.name}</h1>
+                      <p>{location.description}</p>
+                      <div>
+                        <img src="../../../assets/address.svg" alt="Endereço" />
+                        <address>{location.address}</address>
+                      </div>
+                      <div>
+                        <img src="../../../assets/phone.svg" alt="Telefone" />
+                        <a href={"tel:"+location.phone}>{location.phone}</a>
+                      </div>
+                      <div>
+                        <img src="../../../assets/email.svg" alt="Email" />
+                        <a href={"mailto:"+location.email}>{location.email}</a>
+                      </div>
+                      <a href={location.site} target="_blank">Visitar Site</a>
+                      <p>{"Aberto das "+location.time}</p>
+                      <div class="social">
+                        <a href={location.facebook} target="_blank"><img src="assets/facebook.svg" alt="Facebook" /></a>
+                        <a href={location.instagram} target="_blank"><img src="assets/instagram.svg" alt="Instagram" /></a>
+                        <a href={location.whatsapp} target="_blank"><img src="assets/whatsapp.svg" alt="WhatsApp" /></a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )
             }
           )
         }
+      </section>
       <Footer />
     </>
   )
