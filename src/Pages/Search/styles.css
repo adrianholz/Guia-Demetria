@@ -1,3 +1,50 @@
+main {
+
+  background: var(--c1);
+  width: 100%;
+  padding-top: 24px;
+
+}
+
+.search-input {
+
+  background-color: var( --c2);
+  color: white;
+  font-size: 24px;
+  width: 100%;
+  display: block;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  margin-bottom: 24px;
+  border: none;
+  transform: scale(0.9);
+  transition: .4s ease-in-out;
+
+}
+
+.search-input:hover {
+
+  transform: scale(1);
+
+}
+
+.not-found {
+
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  margin-block: 72px;
+  opacity: .6;
+
+}
+
+.catalog {
+
+  min-height: 100vh;
+
+}
+
 .catalog-item:nth-child(odd){
   background: var(--c5);
   color: var(--c2);

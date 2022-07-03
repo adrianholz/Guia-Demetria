@@ -3,39 +3,37 @@ import Footer from "./../../Components/Footer"
 import { database } from "../../firebase";
 import { getDocs, collection } from "firebase/firestore"
 import { useEffect, useState } from "react";
-import { stringify } from "@firebase/util";
-import { useLocation } from "react-router-dom"; 
-import { useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import "./styles.css"
 
-
-export default function Search(){
+export default function Search() {
   const locationCollection = collection(database, "locations")
-  let allCollections = []
   const [locations, setLocations] = useState([])
-  const [allLocations, setAllLocations] = useState([]) 
-  const {state} = useLocation()
+  const [allLocations, setAllLocations] = useState([])
+  const { state } = useLocation()
   const [searchTerm, setSearchTerm] = useState([])
 
-  function checkSearchTerm(places){
-    console.log(searchTerm)
-    let term = searchTerm
-    if(term.term === undefined){
-      term.term = '';
-    }
-    searchData(term, places)
-  }
+  // function checkSearchTerm(places){
+  //   console.log(searchTerm)
+  //   let term = searchTerm
+  //   if(term.term === undefined){
+  //     term.term = '';
+  //   }
+  //   searchData(term, places)
+  // }
 
-  async function getLocationsFromFirebase(){
+  async function getLocationsFromFirebase() {
     const locations = await getDocs(locationCollection);
     let places = []
     locations.docs.map(doc => places.push(doc.data()));
     setLocations(places);
     setAllLocations(places);
-    checkSearchTerm(places);
+    // checkSearchTerm(places);
   }
 
-  function filterData(type){
+
+
+  function filterData(type) {
     setLocations(
       allLocations.filter(
         location => location.type.name === type
@@ -45,43 +43,54 @@ export default function Search(){
 
 
 
-  function searchData(search, places){
-    console.log(search)
-    setLocations(
-      places.filter(
-        location => {
-          const locationName = location.name.toLowerCase()
-          const searchLowerCase = search.term.toLowerCase()
-          if(locationName.includes(searchLowerCase)){
-            return location
+  function searchData(search, places) {
+    console.log(search.trim())
+
+    if(search === '') {
+
+      setLocations(allLocations)
+
+    } else {
+
+      setLocations(
+        places.filter(
+          location => {
+            const locationName = location.name.toLowerCase()
+            const searchLowerCase = search.toLowerCase()
+            if (locationName.includes(searchLowerCase)) {
+              return location
+            }
           }
-        }
+        )
       )
-    )
-    if(search.filter !== undefined){
-      console.log(search)
-      filterData(search.filter);
+      if (search.filter !== undefined) {
+        console.log(search)
+        filterData(search.filter);
+      }
+
     }
+
   }
 
 
-  
+
   useEffect(() => {
 
     getLocationsFromFirebase();
 
 
   }, [searchTerm])
-  return(
+
+  return (
     <>
-      <Header 
-      changeTerm={term => {
-        console.log(term)
-        setSearchTerm(term)
-      }}
+      <Header
+        changeTerm={term => filterData(term.filter)}
       />
-      <input type="text" onChange={event => searchData(event.target.value)} />
-      <button onClick={() => filterData("Alimentação")}>Alimentação</button>
+
+      <main>
+
+        <input type="text" placeholder="Pesquise por um local" className="search-input" onChange={event => searchData(event.target.value, locations)} />
+        {/* <button onClick={() => filterData("Alimentação")}>Alimentação</button>
       <button onClick={() => filterData("Bem-Estar")}>Bem-Estar</button>
       <button onClick={() => filterData("Serviços Gerais")}>Serviços Gerais</button>
       <button onClick={() => filterData("Transporte")}>Transporte</button>
@@ -90,47 +99,58 @@ export default function Search(){
       <button onClick={() => filterData("Biodinâmica")}>Biodinâmica</button>
       <button onClick={() => filterData("Educação")}>Educação</button>
       <button onClick={() => filterData("Grupos")}>Grupos</button>
-      <button onClick={() => filterData("Locais")}>Locais</button>
-      <section className="catalog">
-        {
-          locations.map(
-            (location, index) => {
-              return(
-                <div key={index} class="catalog-item">
-                  <div className="item-inner">
-                    <img className="item-picture" src={location.image}></img>
-                    <div class="item-description">
-                      <p>{location.type.name}</p>
-                      <h1>{location.name}</h1>
-                      <p>{location.description}</p>
-                      <div>
-                        <img src="../../../assets/address.svg" alt="Endereço" />
-                        <address>{location.address}</address>
+      <button onClick={() => filterData("Locais")}>Locais</button> */}
+        <section className="catalog">
+          {
+            locations.length !== 0 ? (
+
+                locations.map(
+                  (location, index) => {
+                    return (
+                      <div key={index} className="catalog-item">
+                        <div className="item-inner">
+                          <img className="item-picture" src={location.image}></img>
+                          <div className="item-description">
+                            <p>{location.type.name}</p>
+                            <h1>{location.name}</h1>
+                            <p>{location.description}</p>
+                            <div>
+                              <img src="../../../assets/address.svg" alt="Endereço" />
+                              <address>{location.address}</address>
+                            </div>
+                            <div>
+                              <img src="../../../assets/phone.svg" alt="Telefone" />
+                              <a href={"tel:" + location.phone}>{location.phone}</a>
+                            </div>
+                            <div>
+                              <img src="../../../assets/email.svg" alt="Email" />
+                              <a href={"mailto:" + location.email}>{location.email}</a>
+                            </div>
+                            <a href={location.site} target="_blank">Visitar Site</a>
+                            <p>{"Aberto das " + location.time}</p>
+                            <div className="social">
+                              <a href={location.facebook} target="_blank"><img src="assets/facebook.svg" alt="Facebook" /></a>
+                              <a href={location.instagram} target="_blank"><img src="assets/instagram.svg" alt="Instagram" /></a>
+                              <a href={location.whatsapp} target="_blank"><img src="assets/whatsapp.svg" alt="WhatsApp" /></a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div>
-                        <img src="../../../assets/phone.svg" alt="Telefone" />
-                        <a href={"tel:"+location.phone}>{location.phone}</a>
-                      </div>
-                      <div>
-                        <img src="../../../assets/email.svg" alt="Email" />
-                        <a href={"mailto:"+location.email}>{location.email}</a>
-                      </div>
-                      <a href={location.site} target="_blank">Visitar Site</a>
-                      <p>{"Aberto das "+location.time}</p>
-                      <div class="social">
-                        <a href={location.facebook} target="_blank"><img src="assets/facebook.svg" alt="Facebook" /></a>
-                        <a href={location.instagram} target="_blank"><img src="assets/instagram.svg" alt="Instagram" /></a>
-                        <a href={location.whatsapp} target="_blank"><img src="assets/whatsapp.svg" alt="WhatsApp" /></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )
-            }
-          )
-        }
-      </section>
-      <Footer />
+                    )
+                  }
+                )
+
+            ) : (
+
+              <h1 className="not-found">Nenhum item encontrado</h1>
+
+            )
+          }
+        </section>
+        <Footer />
+
+      </main>
+
     </>
   )
 }

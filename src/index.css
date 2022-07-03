@@ -148,3 +148,9 @@ table {
 textarea {
   resize: none;
 }
+
+* {
+
+  outline: none;
+
+}

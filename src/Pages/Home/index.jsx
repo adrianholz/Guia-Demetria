@@ -1,59 +1,72 @@
 import "./styles.css"
 import Header from "./../../Components/Header"
 import Footer from "./../../Components/Footer"
+import { useNavigate } from "react-router-dom";
 
 
-export default function Home(){
+  export default function Home(){
+
+    const navigate = useNavigate()
+    let searchTerm
+
+    function search(filter){
+      let params = {term: searchTerm}
+      if(filter !== undefined){
+        params.filter = filter;
+      }
+      navigate("/search")
+    }
+
   return (<>
 
-    <Header 
+    <Header
       changeTerm={term => console.log(term)}
-      />
+    />
 
   <section id="main">
-    <div class="main-content">
-      <div class="content">
+    <div className="main-content">
+      <div className="content">
         <span>Seja Bem-Vindo ao</span>
         <h1>Nosso Demétria</h1>
         <p>Um bairro sustentável, amante da natureza, da cultura, e do bem-estar ecológico.</p>
-        <a href="#">Explorar</a>
+        <a onClick={() => search("") }>Explorar</a>
       </div>
-      <div class="picture"></div>
+      <div className="picture"></div>
     </div>
   </section>
 
   <section id="businesses">
     <img src="assets/leaves-dec.png" alt="Folhas" />
-    <div class="businesses-content">
-      <div class="content">
+    <div className="businesses-content">
+      <div className="content">
         <span>Explore Todos os</span>
         <h1>Nossos Negócios</h1>
         <p>O bairro Demétria conta com diversos negócios, como restaurantes, lojas e produtores locais.</p>
         <p>Clique nas categorias presentes nas placas para visualizar os negócios do bairro Demétria.</p>
       </div>
-      <div class="links">
+      <div className="links">
         <img src="assets/duosign.png" alt="Placas" />
         <img src="assets/sign.png" alt="Placa" />
-        <a>Alimentação</a>
-        <a>Bem-Estar</a>
-        <a>Serviços Gerais</a>
-        <a>Transporte</a>
-        <a>Cursos</a>
-        <a>Biodinâmica</a>
-        <a>Locais</a>
-        <a>Educação</a>
-        <a>Grupos</a>
-        <a>Eventos</a>
+        <a onClick={() => search("Alimentação") }>Alimentação</a>
+        <a onClick={() => search("Bem-Estar") }>Bem-Estar</a>
+        <a onClick={() => search("Serviços Gerais") }>Serviços Gerais</a>
+        <a onClick={() => search("Transporte") }>Transporte</a>
+        <a onClick={() => search("Cursos") }>Cursos</a>
+        <a onClick={() => search("Biodinâmica") }>Biodinâmica</a>
+        <a onClick={() => search("Locais") }>Locais</a>
+        <a onClick={() => search("Educação") }>Educação</a>
+        <a onClick={() => search("Grupos") }>Grupos</a>
+        <a onClick={() => search("Eventos") }>Eventos</a>
       </div>
     </div>
   </section>
-  
+
   <section id="form">
-    <div class="form-content">
+    <div className="form-content">
       <h1>Não Encontrou seu Negócio?</h1>
       <p>Preencha o formulário abaixo, ou entre em contato conosco, para que possamos incluir seu negócio no Guia do Demétria.</p>
-      <div class="form">
-        <div class="form-left">
+      <div className="form">
+        <div className="form-left">
           <h4>Contate-nos</h4>
           <div>
             <img src="assets/address.svg" alt="Endereço" />
@@ -65,13 +78,13 @@ export default function Home(){
             <img src="assets/phone.svg" alt="Celular" />
             <a href="tel:+5514998997707">+55 (14) 99899-7707</a>
           </div>
-          <div class="social">
+          <div className="social">
             <a href="https://facebook.com/hostnetbotucatu" target="_blank"><img src="assets/facebook.svg" alt="Facebook" /></a>
             <a href="https://instagram.com/hostnetbotucatu" target="_blank"><img src="assets/instagram.svg" alt="Instagram" /></a>
             <a href="https://api.whatsapp.com/send/?phone=14998997707" target="_blank"><img src="assets/whatsapp.svg" alt="WhatsApp" /></a>
           </div>
         </div>
-        <div class="form-right">
+        <div className="form-right">
           <form action="">
             <div>
               <label for="name">Nome</label>
@@ -130,6 +143,6 @@ export default function Home(){
   </section>
 
   <Footer />
-  
+
   </>);
 }
