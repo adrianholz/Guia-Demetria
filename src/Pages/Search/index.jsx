@@ -3,14 +3,15 @@ import Footer from "./../../Components/Footer"
 import { database } from "../../firebase";
 import { getDocs, collection } from "firebase/firestore"
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import "./styles.css"
 
 export default function Search() {
   const locationCollection = collection(database, "locations")
   const [locations, setLocations] = useState([])
   const [allLocations, setAllLocations] = useState([])
-  const { state } = useLocation()
+  const { locationSearchParams } = useLocation()
+  const [searchParams] = useSearchParams()
   const [searchTerm, setSearchTerm] = useState([])
 
   // function checkSearchTerm(places){
@@ -23,30 +24,44 @@ export default function Search() {
   // }
 
   async function getLocationsFromFirebase() {
+
     const locations = await getDocs(locationCollection);
     let places = []
     locations.docs.map(doc => places.push(doc.data()));
     setLocations(places);
     setAllLocations(places);
-    // checkSearchTerm(places);
+
+
+    let filter = searchParams.get('filter')
+    if (filter !== null) {
+
+      filterData(filter, places)
+
+    }
+
+    console.log(locationSearchParams)
+
   }
 
 
 
-  function filterData(type) {
+  function filterData(type, data) {
+
+    console.log(type)
+
     setLocations(
-      allLocations.filter(
+      data.filter(
         location => location.type.name === type
       )
     )
+
   }
 
 
 
   function searchData(search, places) {
-    console.log(search.trim())
 
-    if(search === '') {
+    if (search === '') {
 
       setLocations(allLocations)
 
@@ -64,7 +79,6 @@ export default function Search() {
         )
       )
       if (search.filter !== undefined) {
-        console.log(search)
         filterData(search.filter);
       }
 
@@ -76,15 +90,14 @@ export default function Search() {
 
   useEffect(() => {
 
-    getLocationsFromFirebase();
+    getLocationsFromFirebase()
 
-
-  }, [searchTerm])
+  }, [])
 
   return (
     <>
       <Header
-        changeTerm={term => filterData(term.filter)}
+        changeTerm={term => filterData(term.filter, allLocations)}
       />
 
       <main>
@@ -104,41 +117,41 @@ export default function Search() {
           {
             locations.length !== 0 ? (
 
-                locations.map(
-                  (location, index) => {
-                    return (
-                      <div key={index} className="catalog-item">
-                        <div className="item-inner">
-                          <img className="item-picture" src={location.image}></img>
-                          <div className="item-description">
-                            <p>{location.type.name}</p>
-                            <h1>{location.name}</h1>
-                            <p>{location.description}</p>
-                            <div>
-                              <img src="../../../assets/address.svg" alt="Endereço" />
-                              <address>{location.address}</address>
-                            </div>
-                            <div>
-                              <img src="../../../assets/phone.svg" alt="Telefone" />
-                              <a href={"tel:" + location.phone}>{location.phone}</a>
-                            </div>
-                            <div>
-                              <img src="../../../assets/email.svg" alt="Email" />
-                              <a href={"mailto:" + location.email}>{location.email}</a>
-                            </div>
-                            <a href={location.site} target="_blank">Visitar Site</a>
-                            <p>{"Aberto das " + location.time}</p>
-                            <div className="social">
-                              <a href={location.facebook} target="_blank"><img src="assets/facebook.svg" alt="Facebook" /></a>
-                              <a href={location.instagram} target="_blank"><img src="assets/instagram.svg" alt="Instagram" /></a>
-                              <a href={location.whatsapp} target="_blank"><img src="assets/whatsapp.svg" alt="WhatsApp" /></a>
-                            </div>
+              locations.map(
+                (location, index) => {
+                  return (
+                    <div key={index} className="catalog-item">
+                      <div className="item-inner">
+                        <img className="item-picture" src={location.image}></img>
+                        <div className="item-description">
+                          <p>{location.type.name}</p>
+                          <h1>{location.name}</h1>
+                          <p>{location.description}</p>
+                          <div>
+                            <img src="../../../assets/address.svg" alt="Endereço" />
+                            <address>{location.address}</address>
+                          </div>
+                          <div>
+                            <img src="../../../assets/phone.svg" alt="Telefone" />
+                            <a href={"tel:" + location.phone}>{location.phone}</a>
+                          </div>
+                          <div>
+                            <img src="../../../assets/email.svg" alt="Email" />
+                            <a href={"mailto:" + location.email}>{location.email}</a>
+                          </div>
+                          <a href={location.site} target="_blank">Visitar Site</a>
+                          <p>{"Aberto das " + location.time}</p>
+                          <div className="social">
+                            <a href={location.facebook} target="_blank"><img src="assets/facebook.svg" alt="Facebook" /></a>
+                            <a href={location.instagram} target="_blank"><img src="assets/instagram.svg" alt="Instagram" /></a>
+                            <a href={location.whatsapp} target="_blank"><img src="assets/whatsapp.svg" alt="WhatsApp" /></a>
                           </div>
                         </div>
                       </div>
-                    )
-                  }
-                )
+                    </div>
+                  )
+                }
+              )
 
             ) : (
 
@@ -147,7 +160,9 @@ export default function Search() {
             )
           }
         </section>
-        <Footer />
+        <Footer
+          changeTerm={term => filterData(term.filter, allLocations)}
+        />
 
       </main>
 

@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
   return (<>
 
     <Header
-      changeTerm={term => console.log(term)}
+      changeTerm={term => console.log()}
     />
 
   <section id="main">
@@ -142,7 +142,9 @@ import { useNavigate } from "react-router-dom";
     </div>
   </section>
 
-  <Footer />
+  <Footer
+    changeTerm={term => console.log()}
+  />
 
   </>);
 }

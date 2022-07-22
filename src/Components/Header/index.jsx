@@ -1,20 +1,34 @@
 import "./style.css"
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, createSearchParams, matchRoutes, useLocation  } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Header(props){
 
   const navigate = useNavigate()
+  const location = useLocation()
   let searchTerm
 
   function search(filter){
-    let params = {term: searchTerm}
-    if(filter !== undefined){
-      params.filter = filter;
+
+    if(location.pathname !== '/search') {
+
+      navigate({
+        pathname: '/search',
+        search: createSearchParams({ filter: filter }).toString()
+      })
+
+    } else {
+
+      let params = {term: searchTerm}
+      if(filter !== undefined){
+        params.filter = filter;
+      }
+      navigate("/search", { state: params })
+      props.changeTerm(params);
+
     }
-    navigate("/search")
-    props.changeTerm(params);
+
   }
 
   return (<>
