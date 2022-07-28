@@ -1,9 +1,9 @@
-footer{
+footer {
   background: var(--c1);
   color: var(--c5);
 }
 
-.footer-content{
+.footer-content {
   max-width: 1140px;
   margin: 0 auto;
   padding: 80px 40px;
@@ -13,19 +13,19 @@ footer{
   justify-content: center;
 }
 
-.footer-content span{
+.footer-content span {
   font-size: 2em;
   font-weight: 700;
 }
 
-.footer-content h4{
+.footer-content h4 {
   font-family: "Roboto Slab";
   font-size: 1.25em;
   text-transform: uppercase;
   padding: 8px 0 20px 0;
 }
 
-.footer-content > div:nth-child(2) > div:nth-child(2){
+.footer-content > div:nth-child(2) > div:nth-child(2) {
   display: inline-grid;
   grid-template-columns: auto auto;
   gap: 30px 5px;
@@ -39,22 +39,26 @@ footer{
 .footer-content > div:nth-child(2) > div:nth-child(2) a {
   text-decoration: none;
   color: inherit;
-} 
+}
 
-.footer-content > div:nth-child(3) > div:nth-child(2){
+.footer-content > div:nth-child(3) > div:nth-child(2) {
   width: 266px;
   margin-top: 12px;
   display: flex;
   gap: 30px;
 }
 
-.footer-content > div:nth-child(3) > div:nth-child(2) > div{
+.footer-content > div:nth-child(3) > div:nth-child(2) > div {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.copyright{
+.footer-content > div:nth-child(3) a {
+  cursor: pointer;
+}
+
+.copyright {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -65,7 +69,7 @@ footer{
   font-weight: 500;
 }
 
-.copyright a{
+.copyright a {
   text-decoration: none;
   color: inherit;
   font-weight: 700;

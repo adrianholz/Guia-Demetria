@@ -1,71 +1,94 @@
-import "./style.css"
+import "./style.css";
 import { Link } from "react-router-dom";
-import { useNavigate, createSearchParams, matchRoutes, useLocation  } from "react-router-dom";
+import {
+  useNavigate,
+  createSearchParams,
+  matchRoutes,
+  useLocation,
+} from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export default function Header(props){
+export default function Header(props) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  let searchTerm;
 
-  const navigate = useNavigate()
-  const location = useLocation()
-  let searchTerm
-
-  function search(filter){
-
-    if(location.pathname !== '/search') {
-
+  function search(filter) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (location.pathname !== "/search") {
       navigate({
-        pathname: '/search',
-        search: createSearchParams({ filter: filter }).toString()
-      })
-
+        pathname: "/search",
+        search: createSearchParams({ filter: filter }).toString(),
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-
-      let params = {term: searchTerm}
-      if(filter !== undefined){
+      let params = { term: searchTerm };
+      if (filter !== undefined) {
         params.filter = filter;
       }
-      navigate("/search", { state: params })
+      navigate("/search", { state: params });
+      window.scrollTo({ top: 0, behavior: "smooth" });
       props.changeTerm(params);
-
     }
-
   }
 
-  return (<>
-
-<header>
-    <div className="header-content">
-      <h1><Link to="/">Guia do Demétria</Link></h1>
-      {/* <form method="post"> */}
-        {/* <input type="text" name="search" placeholder="Digite um negócio..." onChange={event => searchTerm = event.target.value} />
+  return (
+    <>
+      <header>
+        <div className="header-content">
+          <h1>
+            <Link to="/">Guia Demétria</Link>
+          </h1>
+          {/* <form method="post"> */}
+          {/* <input type="text" name="search" placeholder="Digite um negócio..." onChange={event => searchTerm = event.target.value} />
         <input type="submit" name="submit" value="Procurar" onClick={()=> search()} /> */}
-      {/* </form> */}
-      <nav>
-        <ul>
-          <li>
-            <a>Serviços</a>
+          {/* </form> */}
+          <nav>
             <ul>
-              <li><a onClick={() => search("Alimentação")}>Alimentação</a></li>
-              <li><a onClick={() => search("Bem-Estar")}>Bem-Estar</a></li>
-              <li><a onClick={() => search("Serviços Gerais")}>Serviços Gerais</a></li>
-              <li><a onClick={() => search("Transporte")}>Transporte</a></li>
-              <li><a onClick={() => search("Cursos")}>Cursos</a></li>
+              <li>
+                <a>Serviços</a>
+                <ul>
+                  <li>
+                    <a onClick={() => search("Gastronomia")}>Gastronomia</a>
+                  </li>
+                  <li>
+                    <a onClick={() => search("Bem-Estar")}>Bem-Estar</a>
+                  </li>
+                  <li>
+                    <a onClick={() => search("Serviços")}>Serviços</a>
+                  </li>
+                  <li>
+                    <a onClick={() => search("Transporte")}>Transporte</a>
+                  </li>
+                  <li>
+                    <a onClick={() => search("Cursos")}>Cursos</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>Comunidade</a>
+                <ul>
+                  <li>
+                    <a onClick={() => search("Eventos")}>Eventos</a>
+                  </li>
+                  <li>
+                    <a onClick={() => search("Orgânicos")}>Orgânicos</a>
+                  </li>
+                  <li>
+                    <a onClick={() => search("Educação")}>Educação</a>
+                  </li>
+                  <li>
+                    <a onClick={() => search("Lojas")}>Lojas</a>
+                  </li>
+                  <li>
+                    <a onClick={() => search("Religiosidade")}>Religiosidade</a>
+                  </li>
+                </ul>
+              </li>
             </ul>
-          </li>
-          <li>
-            <a>Comunidade</a>
-            <ul>
-              <li><a onClick={() => search("Eventos")}>Eventos</a></li>
-              <li><a onClick={() => search("Biodinâmica")}>Biodinâmica</a></li>
-              <li><a onClick={() => search("Educação")}>Educação</a></li>
-              <li><a onClick={() => search("Grupos")}>Grupos</a></li>
-              <li><a onClick={() => search("Locais")}>Locais</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  </>)
+          </nav>
+        </div>
+      </header>
+    </>
+  );
 }

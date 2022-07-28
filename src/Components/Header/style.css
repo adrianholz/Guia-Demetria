@@ -71,6 +71,7 @@ nav ul li a {
   text-decoration: none;
   color: inherit;
   transition: background-color 0.2s ease;
+  cursor: pointer;
 }
 
 nav ul li a:hover {
@@ -79,6 +80,7 @@ nav ul li a:hover {
 
 nav ul li {
   position: relative;
+  z-index: 2;
 }
 
 nav ul li:hover a {

@@ -16,8 +16,8 @@
 .main-content .content {
   text-align: center;
   align-self: end;
-  padding-bottom: 120px;
-  max-width: 450px;
+  padding-bottom: 140px;
+  max-width: 451px;
 }
 
 .content span {
@@ -56,6 +56,12 @@
   text-decoration: none;
   color: var(--c5);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.content a:hover {
+  background: linear-gradient(#ff8438, #cd6c2f);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .picture {
@@ -69,6 +75,10 @@
   height: 480px;
   max-width: 560px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.businesses-content .content p {
+  text-align: center;
 }
 
 @media (max-width: 722px) {
@@ -176,7 +186,7 @@
 }
 
 .links a:nth-child(5) {
-  left: 85px;
+  left: 130px;
   top: 258px;
 }
 
@@ -194,14 +204,14 @@
 
 .links a:nth-child(8) {
   font-size: 1.3em;
-  left: 335px;
-  top: 192px;
+  left: 340px;
+  top: 194px;
   transform: rotate(-13deg);
 }
 
 .links a:nth-child(9) {
   font-size: 1.3em;
-  left: 380px;
+  left: 385px;
   top: 263px;
   transform: rotate(-10deg);
 }
@@ -215,8 +225,8 @@
 
 .links a:nth-child(11) {
   font-size: 1.3em;
-  left: 405px;
-  top: 401px;
+  left: 370px;
+  top: 400px;
   transform: rotate(-11.4deg);
 }
 
@@ -259,7 +269,7 @@
   }
   .links a:nth-child(3) {
     top: 59px;
-    left: 80px;
+    left: 75px;
   }
 
   .links a:nth-child(4) {
@@ -268,7 +278,7 @@
   }
 
   .links a:nth-child(5) {
-    left: 63px;
+    left: 100px;
     top: 196px;
   }
 
@@ -284,7 +294,7 @@
 
   .links a:nth-child(8) {
     font-size: 1.25em;
-    left: 80px;
+    left: 88px;
     top: 411px;
     transform: rotate(-1deg);
   }
@@ -292,7 +302,7 @@
   .links a:nth-child(9) {
     font-size: 1.25em;
     left: 116px;
-    top: 479px;
+    top: 480px;
     transform: rotate(2deg);
   }
 
@@ -305,7 +315,7 @@
 
   .links a:nth-child(11) {
     font-size: 1.25em;
-    left: 107px;
+    left: 75px;
     top: 616px;
     transform: rotate(0.5deg);
   }
@@ -456,11 +466,11 @@ input::placeholder {
   margin-right: 10px;
 }
 
-@media(max-width:970px){
-  .form{
+@media (max-width: 970px) {
+  .form {
     grid-template-columns: 1fr;
   }
-  .form-left{
+  .form-left {
     border-radius: 15px 15px 0 0;
     display: flex;
     gap: 40px 60px;
@@ -468,16 +478,17 @@ input::placeholder {
     justify-content: center;
     flex-wrap: wrap;
   }
-  .form-left div:nth-child(2), .form-left .social{
+  .form-left div:nth-child(2),
+  .form-left .social {
     margin: 0;
   }
-  .form-right{
+  .form-right {
     border-radius: 0 0 15px 15px;
   }
 }
 
-@media(max-width:722px){
-  .form-right form{
+@media (max-width: 722px) {
+  .form-right form {
     grid-template-columns: 1fr;
   }
 }
