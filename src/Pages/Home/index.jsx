@@ -28,11 +28,18 @@ export default function Home(props) {
     }
   }
 
-  function goToServices(){
+  function goToServices() {
     window.scrollTo({ top: 0, behavior: "smooth" });
-      navigate({
-        pathname: "/services"
-      });
+    navigate({
+      pathname: "/services",
+    });
+  }
+
+  function goToTerms() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate({
+      pathname: "/terms",
+    });
   }
 
   function getBase(file) {
@@ -231,7 +238,14 @@ export default function Home(props) {
                   name="key"
                   value="eyJpdiI6Im5YbENHTmN1cVNoVGV3cXlyaDJWbFE9PSIsInZhbHVlIjoiQ1oybnU3aGNTSUlxaDRERldmSUZYdlBQeGJod0V1c21JaWFYT2ZqMUh2VTVcL3o4XC9tdTM1N2ZGMktUVXRZOElRczhDRVdidGd1YUsyOVJvaGFENnN1SEZwUlhibjNPc0VPWnZ5Z2VZdm9Oa2FWWDJOTWh3UVV3M0RKNkhKdTkxaHFRSXNRVGxidFhSMVBCdHZWOXFxdlEySzVsMnQwTzhjdHZvWXJRXC9ySHRWRVpwS2tDbjAxYVpwb3U0NFRiWEJ0N0YyUXZOQWFibHg1N0xYeG8ybENtZz09IiwibWFjIjoiM2YyMGUzYTUwZjFhNDMwMDk2MTE0OTgzZTZkZTdlYzFlNWVjMGJjZjZiOTM1ZjY0OTc0YWM3Y2VlMzdkMDZmMSJ9"
                 ></input>
-                <input type="submit" value="Enviar" />
+                <div className="term-check">
+                  <input type="checkbox" name="terms" id="terms" required />
+                  <label htmlFor="terms">
+                    Eu aceito os{" "}
+                    <a onClick={() => goToTerms()}>Termos e Condições</a>
+                  </label>
+                </div>
+                <input className="form-button" type="submit" value="Enviar" />
               </form>
             </div>
           </div>

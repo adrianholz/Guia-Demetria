@@ -1,0 +1,36 @@
+.conditions {
+  background: var(--c5);
+  padding: 80px 20px;
+}
+
+.conditions-inner {
+  max-width: 960px;
+  border-radius: 20px;
+  padding: 60px;
+  margin: 0 auto;
+  background: var(--c1);
+  color: var(--c5);
+}
+
+.conditions-inner h1 {
+  text-align: center;
+  font-family: "Roboto Slab", sans-serif;
+  padding-bottom: 30px;
+  font-size: 2em;
+  line-height: 1.25em;
+}
+
+.conditions-inner h2 {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.125em;
+  padding: 20px 0;
+  line-height: 1.5em;
+}
+
+.conditions-inner strong {
+  font-weight: 700;
+}
+
+.conditions-inner p {
+  line-height: 1.35em;
+}

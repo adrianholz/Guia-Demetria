@@ -458,14 +458,38 @@ input::placeholder {
   color: var(--c5);
 }
 
-.form-right form > input {
-  font-family: "Roboto Slab", sans-serif;
+.form-button {
+  font-family: "Roboto Slab", sans-serif !important;
   text-transform: uppercase;
   max-width: 120px;
   min-height: 51px;
-  background: var(--c3);
-  align-self: end;
+  background: var(--c3) !important;
   cursor: pointer;
+}
+
+.term-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 43px;
+  align-self: flex-end;
+  background: var(--c2);
+  padding: 12px;
+  gap: 20px;
+}
+
+.term-check label {
+  line-height: 1.125em;
+}
+
+.term-check a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.term-check input {
+  transform: scale(1.5);
+  max-width: 15px;
 }
 
 ::-webkit-file-upload-button {
