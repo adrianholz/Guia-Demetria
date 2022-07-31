@@ -243,6 +243,55 @@
   transform: rotate(-11.5deg);
 }
 
+.transportation {
+  background: var(--c5);
+}
+
+.transportation-inner {
+  max-width: 1140px;
+  padding: 120px 40px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 40px;
+  color: var(--c1);
+  text-align: center;
+}
+
+.transportation-inner .content {
+  max-width: 500px;
+}
+
+.transportation-inner .content span,
+.transportation-inner .content p {
+  color: var(--c2);
+}
+
+.transportation-inner .content p:nth-child(3) {
+  margin-top: 5px;
+  line-height: 1.25em;
+}
+
+.transportation-inner .content p:nth-child(5) {
+  padding-top: 0;
+}
+
+.transportation-inner .content p:nth-child(4),
+.transportation-inner .content p:nth-child(6) {
+  font-size: 1.75em;
+  font-weight: 600;
+  padding-top: 0;
+}
+
+.map {
+  height: 420px;
+  width: 100%;
+  max-width: 640px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 @media (max-width: 970px) {
   #businesses > img {
     max-width: 340px;
@@ -253,6 +302,9 @@
   .businesses-content {
     grid-template-columns: 1fr;
     justify-items: center;
+  }
+  .transportation-inner {
+    grid-template-columns: 1fr;
   }
   .businesses-content .content {
     justify-self: center;

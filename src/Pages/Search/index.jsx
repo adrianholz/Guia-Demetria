@@ -112,7 +112,13 @@ export default function Search() {
                         <a href={location.instagram} target="_blank">
                           <img src="assets/instagram.svg" alt="Instagram" />
                         </a>
-                        <a href={"https://api.whatsapp.com/send?phone=55" + location.phone} target="_blank">
+                        <a
+                          href={
+                            "https://api.whatsapp.com/send?phone=55" +
+                            location.phone
+                          }
+                          target="_blank"
+                        >
                           <img src="assets/whatsapp.svg" alt="WhatsApp" />
                         </a>
                       </div>

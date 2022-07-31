@@ -252,6 +252,32 @@ export default function Home(props) {
         </div>
       </section>
 
+      <section className="transportation">
+        <div className="transportation-inner">
+          <div className="content">
+            <span>Ônibus</span>
+            <h1>Municipal</h1>
+            <p>
+              O ponto se localiza frente à Feira Cultural. Previsão de partida
+              de segunda à sexta:
+            </p>
+            <p>07h20 | 12h50 | 16h40 | 17h50</p>
+            <p>
+              Partindo do centro, o ponto se localiza na Rua Curuzu. Previsão de
+              partida de segunda à sexta:
+            </p>
+            <p>06h50 | 12h00 | 16h00</p>
+          </div>
+          <div className="map">
+            <iframe
+              src="https://www.google.com/maps/d/embed?mid=10YMiIvpyJ1H2TqUUinoK7ww1bwI&hl=pt-BR&ehbc=2E312F"
+              width="100%"
+              height="100%"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       <Footer changeTerm={(term) => console.log()} />
     </>
   );

@@ -10,7 +10,7 @@ export default function Terms() {
 
       <section className="conditions">
         <div className="conditions-inner">
-          <h1>TERMO DE AUTORIZAÇÃO PARA USO DE IMAGEM</h1>
+          <h1>TERMO DE AUTORIZAÇÃO PARA USO DE IMAGEM E DADOS</h1>
           <p>
             Eu, aqui denominado(a) como <strong>TITULAR</strong>, autorizo que{" "}
             <strong>HOSTNET BOTUCATU</strong>, tido como{" "}
