@@ -32,6 +32,13 @@ export default function Header(props) {
     }
   }
 
+  function goToServices(){
+    window.scrollTo({ top: 0, behavior: "smooth" });
+      navigate({
+        pathname: "/services"
+      });
+  }
+
   return (
     <>
       <header>
@@ -62,6 +69,9 @@ export default function Header(props) {
                   </li>
                   <li>
                     <a onClick={() => search("Cursos")}>Cursos</a>
+                  </li>
+                  <li>
+                    <a onClick={() => goToServices()}>Diversos</a>
                   </li>
                 </ul>
               </li>

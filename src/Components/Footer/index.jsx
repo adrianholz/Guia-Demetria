@@ -32,6 +32,13 @@ export default function Footer(props) {
     }
   }
 
+  function goToServices(){
+    window.scrollTo({ top: 0, behavior: "smooth" });
+      navigate({
+        pathname: "/services"
+      });
+  }
+
   return (
     <>
       <footer>
@@ -79,9 +86,10 @@ export default function Footer(props) {
                 <a onClick={() => search("Serviços")}>Serviços</a>
                 <a onClick={() => search("Transporte")}>Transporte</a>
                 <a onClick={() => search("Cursos")}>Cursos</a>
+                <a onClick={() => goToServices()}>Diversos</a>
               </div>
               <div>
-                <a onClick={() => search("Biodinâmica")}>Orgânicos</a>
+                <a onClick={() => search("Orgânicos")}>Orgânicos</a>
                 <a onClick={() => search("Lojas")}>Lojas</a>
                 <a onClick={() => search("Educação")}>Educação</a>
                 <a onClick={() => search("Religiosidade")}>Religiosidade</a>

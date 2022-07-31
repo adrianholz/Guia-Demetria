@@ -28,6 +28,13 @@ export default function Home(props) {
     }
   }
 
+  function goToServices(){
+    window.scrollTo({ top: 0, behavior: "smooth" });
+      navigate({
+        pathname: "/services"
+      });
+  }
+
   function getBase(file) {
     const baseImage = document.querySelector("#baseImage");
     let reader = new FileReader();
@@ -77,11 +84,12 @@ export default function Home(props) {
             <a onClick={() => search("Serviços")}>Serviços</a>
             <a onClick={() => search("Transporte")}>Transporte</a>
             <a onClick={() => search("Cursos")}>Cursos</a>
+            <a onClick={() => goToServices()}>Diversos</a>
+            <a onClick={() => search("Eventos")}>Eventos</a>
             <a onClick={() => search("Orgânicos")}>Orgânicos</a>
             <a onClick={() => search("Lojas")}>Lojas</a>
             <a onClick={() => search("Educação")}>Educação</a>
             <a onClick={() => search("Religiosidade")}>Religiosidade</a>
-            <a onClick={() => search("Eventos")}>Eventos</a>
           </div>
         </div>
       </section>
