@@ -78,7 +78,7 @@ export default function Search() {
                     <p className="item-name">{service.name}</p>
                     <div className="item-contact">
                       <a href={"tel:" + service.phone}><img src="../../../assets/phone.svg" alt="Telefone" /></a>
-                      <a href={"https://api.whatsapp.com/send?phone=" + service.phone} target="_blank"><img src="assets/whatsapp.svg" alt="WhatsApp" /></a>
+                      <a href={"https://api.whatsapp.com/send?phone=55" + service.phone} target="_blank"><img src="assets/whatsapp.svg" alt="WhatsApp" /></a>
                     </div>
                   </div>
                 
