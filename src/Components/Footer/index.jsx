@@ -93,7 +93,7 @@ export default function Footer(props) {
                 <a onClick={() => search("Serviços")}>Serviços</a>
                 <a onClick={() => search("Hospedagem")}>Hospedagem</a>
                 <a onClick={() => search("Formação")}>Formação</a>
-                <a onClick={() => goToServices()}>Diversos</a>
+                <a onClick={() => goToServices()}>Indicações</a>
               </div>
               <div>
                 <a onClick={() => search("Orgânicos")}>Orgânicos</a>

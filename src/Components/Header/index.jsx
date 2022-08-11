@@ -71,7 +71,7 @@ export default function Header(props) {
                     <a onClick={() => search("Formação")}>Formação</a>
                   </li>
                   <li>
-                    <a onClick={() => goToServices()}>Diversos</a>
+                    <a onClick={() => goToServices()}>Indicações</a>
                   </li>
                 </ul>
               </li>

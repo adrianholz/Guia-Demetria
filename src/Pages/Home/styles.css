@@ -65,7 +65,7 @@
 }
 
 .picture {
-  background: url(../../../public/assets/bairro-demetria.jpeg);
+  background: url(../../../public/assets/bairro-demetria.webp);
   border-radius: 5px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -203,7 +203,7 @@
 }
 
 .links a:nth-child(8) {
-  left: 126px;
+  left: 114px;
   top: 526px;
   transform: rotate(-1deg);
 }
@@ -331,8 +331,8 @@
   }
 
   .links a:nth-child(4) {
-    left: 88px;
-    top: 128px;
+    left: 110px;
+    top: 129px;
   }
 
   .links a:nth-child(5) {
@@ -341,18 +341,18 @@
   }
 
   .links a:nth-child(6) {
-    left: 80px;
+    left: 75px;
     top: 266px;
   }
 
   .links a:nth-child(7) {
-    left: 107px;
+    left: 93px;
     top: 336px;
   }
 
   .links a:nth-child(8) {
     font-size: 1.25em;
-    left: 97px;
+    left: 85px;
     top: 402px;
     transform: rotate(0.5deg);
   }
@@ -367,26 +367,26 @@
   .links a:nth-child(10) {
     font-size: 1.25em;
     left: 90px;
-    top: 542px;
+    top: 541px;
     transform: rotate(-1.5deg);
   }
 
   .links a:nth-child(11) {
     font-size: 1.25em;
-    left: 115px;
-    top: 610px;
+    left: 92px;
+    top: 609px;
     transform: rotate(0.5deg);
   }
 
   .links a:nth-child(12) {
     font-size: 1.25em;
-    left: 95px;
+    left: 103px;
     top: 678px;
     transform: rotate(-0.5deg);
   }
   .links a:nth-child(13) {
     font-size: 1.25em;
-    left: 76px;
+    left: 72px;
     top: 748px;
     transform: rotate(-0.5deg);
   }

@@ -91,7 +91,7 @@ export default function Home(props) {
             <a onClick={() => search("Serviços")}>Serviços</a>
             <a onClick={() => search("Hospedagem")}>Hospedagem</a>
             <a onClick={() => search("Formação")}>Formação</a>
-            <a onClick={() => goToServices()}>Diversos</a>
+            <a onClick={() => goToServices()}>Indicações</a>
             <a onClick={() => search("Cultura")}>Cultura</a>
             <a onClick={() => search("Orgânicos")}>Orgânicos</a>
             <a onClick={() => search("Bem-Estar")}>Bem-Estar</a>
@@ -224,7 +224,7 @@ export default function Home(props) {
                   ></textarea>
                 </div>
                 <div>
-                  <label for="image">Imagens do Negócio</label>
+                  <label for="image">Imagem do Negócio (Max. 500KB)</label>
                   <input
                     type="file"
                     id="image"
@@ -258,7 +258,7 @@ export default function Home(props) {
             <span>Ônibus</span>
             <h1>Municipal</h1>
             <p>
-              O ponto se localiza frente à Feira Cultural. Previsão de partida
+              O ponto se localiza na Praça da Guarita. Previsão de partida
               de segunda à sexta:
             </p>
             <p>07h20 | 12h50 | 16h40 | 17h50</p>
