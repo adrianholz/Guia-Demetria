@@ -89,18 +89,18 @@ export default function Footer(props) {
             <div>
               <div>
                 <a onClick={() => search("Gastronomia")}>Gastronomia</a>
-                <a onClick={() => search("Bem-Estar")}>Bem-Estar</a>
+                <a onClick={() => search("Saúde")}>Saúde</a>
                 <a onClick={() => search("Serviços")}>Serviços</a>
-                <a onClick={() => search("Transporte")}>Transporte</a>
-                <a onClick={() => search("Cursos")}>Cursos</a>
+                <a onClick={() => search("Hospedagem")}>Hospedagem</a>
+                <a onClick={() => search("Formação")}>Formação</a>
                 <a onClick={() => goToServices()}>Diversos</a>
               </div>
               <div>
                 <a onClick={() => search("Orgânicos")}>Orgânicos</a>
-                <a onClick={() => search("Lojas")}>Lojas</a>
-                <a onClick={() => search("Educação")}>Educação</a>
-                <a onClick={() => search("Religiosidade")}>Religiosidade</a>
-                <a onClick={() => search("Eventos")}>Eventos</a>
+                <a onClick={() => search("Bem-Estar")}>Bem-Estar</a>
+                <a onClick={() => search("Escolas")}>Escolas</a>
+                <a onClick={() => search("Artes e Ofícios")}>Artes e Ofícios</a>
+                <a onClick={() => search("Cultura")}>Cultura</a>
                 <a onClick={() => goToTerms()}>Termos e Condições</a>
               </div>
             </div>

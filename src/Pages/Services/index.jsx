@@ -15,6 +15,7 @@ export default function Search() {
   const [searchTerm, setSearchTerm] = useState([]);
 
   async function getLocationsFromFirebase() {
+    document.querySelector(".not-found").innerHTML = "Carregando...";
     const locations = await getDocs(locationCollection);
     let places = [];
     locations.docs.map((doc) => places.push(doc.data()));

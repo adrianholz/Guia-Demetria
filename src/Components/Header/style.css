@@ -107,6 +107,10 @@ nav ul li:nth-child(1) ul {
   text-align: left;
 }
 
+nav ul li:nth-child(2) ul {
+  min-width: 200px;
+}
+
 nav ul li:hover ul {
   visibility: visible;
   opacity: 1;

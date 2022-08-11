@@ -59,16 +59,16 @@ export default function Header(props) {
                     <a onClick={() => search("Gastronomia")}>Gastronomia</a>
                   </li>
                   <li>
-                    <a onClick={() => search("Bem-Estar")}>Bem-Estar</a>
+                    <a onClick={() => search("Saúde")}>Saúde</a>
                   </li>
                   <li>
                     <a onClick={() => search("Serviços")}>Serviços</a>
                   </li>
                   <li>
-                    <a onClick={() => search("Transporte")}>Transporte</a>
+                    <a onClick={() => search("Hospedagem")}>Hospedagem</a>
                   </li>
                   <li>
-                    <a onClick={() => search("Cursos")}>Cursos</a>
+                    <a onClick={() => search("Formação")}>Formação</a>
                   </li>
                   <li>
                     <a onClick={() => goToServices()}>Diversos</a>
@@ -79,19 +79,19 @@ export default function Header(props) {
                 <a>Comunidade</a>
                 <ul>
                   <li>
-                    <a onClick={() => search("Eventos")}>Eventos</a>
+                    <a onClick={() => search("Cultura")}>Cultura</a>
                   </li>
                   <li>
                     <a onClick={() => search("Orgânicos")}>Orgânicos</a>
                   </li>
                   <li>
-                    <a onClick={() => search("Educação")}>Educação</a>
+                    <a onClick={() => search("Escolas")}>Escolas</a>
                   </li>
                   <li>
-                    <a onClick={() => search("Lojas")}>Lojas</a>
+                    <a onClick={() => search("Bem-Estar")}>Bem-Estar</a>
                   </li>
                   <li>
-                    <a onClick={() => search("Religiosidade")}>Religiosidade</a>
+                    <a onClick={() => search("Artes e Ofícios")}>Artes e Ofícios</a>
                   </li>
                 </ul>
               </li>

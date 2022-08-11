@@ -5,6 +5,7 @@ import { getDocs, collection } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import "./styles.css";
+import { async } from "@firebase/util";
 
 export default function Search() {
   const locationCollection = collection(database, "locations");
@@ -24,6 +25,7 @@ export default function Search() {
   // }
 
   async function getLocationsFromFirebase() {
+    document.querySelector(".not-found").innerHTML = "Carregando...";
     const locations = await getDocs(locationCollection);
     let places = [];
     locations.docs.map((doc) => places.push(doc.data()));
@@ -51,13 +53,14 @@ export default function Search() {
           if (locationName.includes(searchLowerCase)) {
             return location;
           }
-        })
+        }),
       );
       if (search.filter !== undefined) {
         filterData(search.filter);
       }
     }
   }
+
 
   useEffect(() => {
     getLocationsFromFirebase();
@@ -104,7 +107,7 @@ export default function Search() {
                       <a href={location.site} target="_blank">
                         Visitar Site
                       </a>
-                      <p>{"Aberto das " + location.time}</p>
+                      <p>{location.time}</p>
                       <div className="social">
                         <a href={location.facebook} target="_blank">
                           <img src="assets/facebook.svg" alt="Facebook" />

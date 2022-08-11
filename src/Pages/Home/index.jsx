@@ -87,16 +87,16 @@ export default function Home(props) {
             <img src="assets/duosign.png" alt="Placas" />
             <img src="assets/sign.png" alt="Placa" />
             <a onClick={() => search("Gastronomia")}>Gastronomia</a>
-            <a onClick={() => search("Bem-Estar")}>Bem-Estar</a>
+            <a onClick={() => search("Saúde")}>Saúde</a>
             <a onClick={() => search("Serviços")}>Serviços</a>
-            <a onClick={() => search("Transporte")}>Transporte</a>
-            <a onClick={() => search("Cursos")}>Cursos</a>
+            <a onClick={() => search("Hospedagem")}>Hospedagem</a>
+            <a onClick={() => search("Formação")}>Formação</a>
             <a onClick={() => goToServices()}>Diversos</a>
-            <a onClick={() => search("Eventos")}>Eventos</a>
+            <a onClick={() => search("Cultura")}>Cultura</a>
             <a onClick={() => search("Orgânicos")}>Orgânicos</a>
-            <a onClick={() => search("Lojas")}>Lojas</a>
-            <a onClick={() => search("Educação")}>Educação</a>
-            <a onClick={() => search("Religiosidade")}>Religiosidade</a>
+            <a onClick={() => search("Bem-Estar")}>Bem-Estar</a>
+            <a onClick={() => search("Escolas")}>Escolas</a>
+            <a onClick={() => search("Artes e Ofícios")}>Artes e Ofícios</a>
           </div>
         </div>
       </section>
@@ -195,15 +195,15 @@ export default function Home(props) {
                   <label for="category">Categoria</label>
                   <select name="category" id="category">
                     <option value="gastronomia">Gastronomia</option>
-                    <option value="bem-estar">Bem-Estar</option>
+                    <option value="saude">Saúde</option>
                     <option value="servicos">Serviços</option>
-                    <option value="transporte">Transporte</option>
-                    <option value="cursos">Cursos</option>
+                    <option value="hospedagem">Hospedagem</option>
+                    <option value="formacao">Formação</option>
                     <option value="organicos">Orgânicos</option>
-                    <option value="lojas">Lojas</option>
-                    <option value="educacao">Educação</option>
-                    <option value="religiosidade">Religiosidade</option>
-                    <option value="eventos">Eventos</option>
+                    <option value="bem-estar">Bem-Estar</option>
+                    <option value="escolas">Escolas</option>
+                    <option value="artes e ofícios">Artes e Ofícios</option>
+                    <option value="cultura">Cultura</option>
                   </select>
                 </div>
                 <div>

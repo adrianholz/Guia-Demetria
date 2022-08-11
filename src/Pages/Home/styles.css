@@ -180,8 +180,8 @@
 }
 
 .links a:nth-child(4) {
-  left: 110px;
-  top: 168px;
+  left: 148px;
+  top: 169px;
   transform: rotate(-1.8deg);
 }
 
@@ -192,13 +192,13 @@
 
 .links a:nth-child(6) {
   left: 100px;
-  top: 346px;
+  top: 347px;
   transform: rotate(-0.5deg);
 }
 
 .links a:nth-child(7) {
-  left: 140px;
-  top: 438px;
+  left: 125px;
+  top: 439px;
   transform: rotate(-0.3deg);
 }
 
@@ -210,9 +210,9 @@
 
 .links a:nth-child(9) {
   font-size: 1.3em;
-  left: 357px;
+  left: 356px;
   top: 280px;
-  transform: rotate(-12deg);
+  transform: rotate(-13deg);
 }
 
 .links a:nth-child(10) {
@@ -224,21 +224,21 @@
 
 .links a:nth-child(11) {
   font-size: 1.3em;
-  left: 400px;
-  top: 418px;
-  transform: rotate(-11.4deg);
+  left: 384px;
+  top: 416px;
+  transform: rotate(-12deg);
 }
 
 .links a:nth-child(12) {
   font-size: 1.3em;
-  left: 395px;
-  top: 486px;
+  left: 405px;
+  top: 487px;
   transform: rotate(-11.2deg);
 }
 
 .links a:nth-child(13) {
   font-size: 1.3em;
-  left: 380px;
+  left: 373px;
   top: 558px;
   transform: rotate(-11.5deg);
 }
