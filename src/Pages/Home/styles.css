@@ -174,71 +174,71 @@
 }
 
 .links a:nth-child(3) {
-  top: 77px;
-  left: 96px;
+  top: 78px;
+  left: 86px;
   transform: rotate(1.7deg);
 }
 
 .links a:nth-child(4) {
-  left: 148px;
-  top: 169px;
+  left: 115px;
+  top: 168px;
   transform: rotate(-1.8deg);
 }
 
 .links a:nth-child(5) {
-  left: 130px;
-  top: 256px;
+  left: 135px;
+  top: 257px;
 }
 
 .links a:nth-child(6) {
-  left: 100px;
+  left: 136px;
   top: 347px;
   transform: rotate(-0.5deg);
 }
 
 .links a:nth-child(7) {
-  left: 125px;
+  left: 127px;
   top: 439px;
   transform: rotate(-0.3deg);
 }
 
 .links a:nth-child(8) {
-  left: 114px;
+  left: 92px;
   top: 526px;
   transform: rotate(-1deg);
 }
 
 .links a:nth-child(9) {
   font-size: 1.3em;
-  left: 356px;
-  top: 280px;
+  left: 340px;
+  top: 278px;
   transform: rotate(-13deg);
 }
 
 .links a:nth-child(10) {
   font-size: 1.3em;
-  left: 360px;
-  top: 350px;
+  left: 362px;
+  top: 349px;
   transform: rotate(-10deg);
 }
 
 .links a:nth-child(11) {
   font-size: 1.3em;
-  left: 384px;
+  left: 382px;
   top: 416px;
   transform: rotate(-12deg);
 }
 
 .links a:nth-child(12) {
   font-size: 1.3em;
-  left: 405px;
+  left: 416px;
   top: 487px;
   transform: rotate(-11.2deg);
 }
 
 .links a:nth-child(13) {
   font-size: 1.3em;
-  left: 373px;
+  left: 410px;
   top: 558px;
   transform: rotate(-11.5deg);
 }
@@ -327,11 +327,11 @@
   }
   .links a:nth-child(3) {
     top: 60px;
-    left: 75px;
+    left: 63px;
   }
 
   .links a:nth-child(4) {
-    left: 110px;
+    left: 85px;
     top: 129px;
   }
 
@@ -341,25 +341,25 @@
   }
 
   .links a:nth-child(6) {
-    left: 75px;
+    left: 100px;
     top: 266px;
   }
 
   .links a:nth-child(7) {
-    left: 93px;
+    left: 92px;
     top: 336px;
   }
 
   .links a:nth-child(8) {
     font-size: 1.25em;
-    left: 85px;
+    left: 67px;
     top: 402px;
     transform: rotate(0.5deg);
   }
 
   .links a:nth-child(9) {
     font-size: 1.25em;
-    left: 103px;
+    left: 78px;
     top: 472px;
     transform: rotate(1.5deg);
   }
@@ -374,19 +374,19 @@
   .links a:nth-child(11) {
     font-size: 1.25em;
     left: 92px;
-    top: 609px;
+    top: 610px;
     transform: rotate(0.5deg);
   }
 
   .links a:nth-child(12) {
     font-size: 1.25em;
-    left: 103px;
+    left: 110px;
     top: 678px;
     transform: rotate(-0.5deg);
   }
   .links a:nth-child(13) {
     font-size: 1.25em;
-    left: 72px;
+    left: 100px;
     top: 748px;
     transform: rotate(-0.5deg);
   }

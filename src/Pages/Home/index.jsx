@@ -86,17 +86,17 @@ export default function Home(props) {
           <div className="links">
             <img src="assets/duosign.png" alt="Placas" />
             <img src="assets/sign.png" alt="Placa" />
+            <a onClick={() => search("Artes e Ofícios")}>Artes e Ofícios</a>
+            <a onClick={() => search("Bem-Estar")}>Bem-Estar</a>
+            <a onClick={() => search("Cultura")}>Cultura</a>
+            <a onClick={() => search("Escolas")}>Escolas</a>
+            <a onClick={() => search("Formação")}>Formação</a>
             <a onClick={() => search("Gastronomia")}>Gastronomia</a>
+            <a onClick={() => search("Hospedagem")}>Hospedagem</a>
+            <a onClick={() => goToServices()}>Indicações</a>
+            <a onClick={() => search("Orgânicos")}>Orgânicos</a>
             <a onClick={() => search("Saúde")}>Saúde</a>
             <a onClick={() => search("Serviços")}>Serviços</a>
-            <a onClick={() => search("Hospedagem")}>Hospedagem</a>
-            <a onClick={() => search("Formação")}>Formação</a>
-            <a onClick={() => goToServices()}>Indicações</a>
-            <a onClick={() => search("Cultura")}>Cultura</a>
-            <a onClick={() => search("Orgânicos")}>Orgânicos</a>
-            <a onClick={() => search("Bem-Estar")}>Bem-Estar</a>
-            <a onClick={() => search("Escolas")}>Escolas</a>
-            <a onClick={() => search("Artes e Ofícios")}>Artes e Ofícios</a>
           </div>
         </div>
       </section>
