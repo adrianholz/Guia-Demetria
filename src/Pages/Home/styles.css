@@ -1,11 +1,10 @@
 #main {
   background-color: var(--c2);
-  box-shadow: inset 0 -100px var(--c5);
 }
 
 .main-content {
   max-width: 1140px;
-  padding: 40px;
+  padding: 40px 40px 60px 40px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -16,7 +15,7 @@
 .main-content .content {
   text-align: center;
   align-self: end;
-  padding-bottom: 140px;
+  padding-bottom: 120px;
   max-width: 451px;
 }
 
@@ -65,16 +64,21 @@
 }
 
 .picture {
-  background: url(../../../public/assets/bairro-demetria.webp);
   border-radius: 5px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   justify-self: right;
   width: 100%;
   height: 480px;
   max-width: 560px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.picture img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 480px;
+  display: inline-block;
+  /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); */
+  border-radius: 5px;
 }
 
 .businesses-content .content p {
@@ -85,6 +89,7 @@
   .main-content {
     grid-template-columns: 1fr;
     justify-items: center;
+    padding-bottom: 80px;
   }
   .main-content .content {
     padding-bottom: unset;
@@ -105,13 +110,13 @@
 #businesses > img {
   position: absolute;
   max-width: 500px;
-  left: 0;
-  top: -101px;
+  left: -1px;
+  top: -1px;
 }
 
 .businesses-content {
   max-width: 1140px;
-  padding: 40px 40px 0 40px;
+  padding: 140px 40px 0 40px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -293,6 +298,9 @@
 }
 
 @media (max-width: 970px) {
+  .businesses-content {
+    padding-top: 100px;
+  }
   #businesses > img {
     max-width: 340px;
   }

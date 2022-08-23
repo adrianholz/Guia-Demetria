@@ -1,8 +1,14 @@
 import "./styles.css";
 import Header from "./../../Components/Header";
 import Footer from "./../../Components/Footer";
-import { useNavigate, createSearchParams, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { database } from "../../firebase";
+import { getDocs, collection } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { useNavigate, createSearchParams, useLocation, useSearchParams } from "react-router-dom";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/autoplay';
 
 export default function Home(props) {
   const navigate = useNavigate();
@@ -56,6 +62,21 @@ export default function Home(props) {
     };
   }
 
+  const locationCollection = collection(database, "events");
+  const [locations, setLocations] = useState([]);
+
+
+  async function getLocationsFromFirebase() {
+    const locations = await getDocs(locationCollection);
+    let places = [];
+    locations.docs.map((doc) => places.push(doc.data()));
+    setLocations(places);
+  }
+
+  useEffect(() => {
+    getLocationsFromFirebase();
+  }, []);
+
   return (
     <>
       <Header changeTerm={(term) => console.log()} />
@@ -68,7 +89,22 @@ export default function Home(props) {
             <p>Todas as atividades do bairro em um só lugar.</p>
             <a onClick={() => search(null)}>Acesse</a>
           </div>
-          <div className="picture"></div>
+          <div className="picture">
+            <Swiper
+              modules={[Autoplay]}
+              autoplay={{delay: 8000, disableOnInteraction: false}}
+              spaceBetween={50}
+              slidesPerView={1}
+            >
+              {locations.map((event, index) => {
+              return (
+                  <SwiperSlide key={index}>
+                    <img src={event.image} alt="Informações do Evento" />
+                  </SwiperSlide>
+              );
+            })}
+            </Swiper>
+          </div>
         </div>
       </section>
 
